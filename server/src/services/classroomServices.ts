@@ -24,7 +24,7 @@ export const createClassroom = async (
          name,
          capacity,
          building,
-         slug: "test",
+         slug: "test" + crypto.randomUUID(),
       },
    });
 };
@@ -38,7 +38,7 @@ export const updateClassroom = async (
          name,
          capacity,
          building,
-         slug: "test",
+         slug: "test" + crypto.randomUUID(),
       },
       where: {
          id,
