@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 
 import { apiRouter } from "./routes/api";
+import { errorHandler, notFound } from "./middleware/errorMiddleware";
 
 dotenv.config();
 
@@ -12,6 +13,5 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1", apiRouter);
 
-app.get("/", (req, res) => {
-   res.send(`Fala rapeeeize`);
-});
+app.use(notFound);
+app.use(errorHandler);
